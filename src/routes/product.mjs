@@ -1,9 +1,8 @@
 import express from "express";
 const productRouter = express.Router();
 import auth from "../../middleware/auth.mjs";
-import Product from "../Model/productModel.mjs";
-
-
+import { Product } from "../Model/productModel.mjs";
+import Order from "../Model/orderModel.mjs";
 
 productRouter.get('/api/products', auth, async (req, res) => {
   try {
@@ -83,5 +82,7 @@ productRouter.get('/api/deal-of-day', auth, async (req, res) => {
     res.status(500).json({ error: e.message });
   }
 })
+
+
 
 export default productRouter;

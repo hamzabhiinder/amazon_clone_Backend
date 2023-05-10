@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import ratingSchema from "./rating.mjs";
 
-const productSchema = mongoose.Schema({
+export const productSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -33,6 +33,6 @@ const productSchema = mongoose.Schema({
     ratings:[ratingSchema]
 });
 
-const Product=mongoose.model("Product",productSchema)
+export const Product=mongoose.model("Product",productSchema)
 
-export default Product;
+//export default Product;

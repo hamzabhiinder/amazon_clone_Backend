@@ -4,6 +4,7 @@ import User from "../Model/userModel.mjs";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import auth from "../../middleware/auth.mjs";
+import mongoose from "mongoose";
 
 
 // SIGN UP
@@ -57,6 +58,7 @@ authRouter.post("/api/signin", async (req, res) => {
   }
 });
 
+//Check token is Valid or Not Valid
 authRouter.post("/tokenIsValid", async (req, res) => {
   try {
     const token = req.header("x-auth-token");
@@ -77,5 +79,5 @@ authRouter.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
   res.json({ ...user._doc, token: req.token });
 });
-
+  
 export default authRouter;
